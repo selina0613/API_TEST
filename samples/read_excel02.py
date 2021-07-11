@@ -8,7 +8,8 @@ import xlrd
 from commom.excel_utils import ExcelUtils
 
 
-excel_path = os.path.join(os.path.dirname(__file__), 'data/test.xlsx')
+#excel_path = os.path.join(os.path.dirname(__file__), 'data/test.xlsx')
+excel_path = os.path.join(os.path.dirname(__file__), 'data/test1.xlsx')
 excelUtils = ExcelUtils(excel_path, 'Sheet1')
 print(excelUtils.get_merged_cell_value(3,0))  #获取单元格的值
 
