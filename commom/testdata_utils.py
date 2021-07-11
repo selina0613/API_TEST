@@ -1,9 +1,17 @@
 #测试数据转化
 import os
 from commom.excel_utils import ExcelUtils
+#from commom import config   #config使用方法一
+from commom.localconfig_utils import local_config  #config使用方法二
 
 current_path = os.path.dirname(__file__)
-test_data_path = os.path.join(current_path, '..', 'test_data/test_case.xlsx')
+#写法一：
+#test_data_path = os.path.join(current_path, '..', 'test_data/test_case.xlsx')
+#对应config方法一写法：
+#test_data_path = os.path.join(current_path, '..', config.CASE_DATA_PATH)
+#对应config方法二写法：
+test_data_path = os.path.join(current_path, '..', local_config.CASE_DATA_PATH)
+
 # print(current_path)
 # print(test_data_path)
 
