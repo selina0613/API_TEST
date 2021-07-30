@@ -1,0 +1,21 @@
+pytest
+pytest-html
+pytest-xdist
+pytest-ordering
+pytest-rerunfailures
+allure-pytest
+pyyaml
+requests
+PyMySQl
+
+#Successfully installed
+#allure-pytest-2.9.43
+#allure-python-commons-2.9.43
+#execnet-1.9.0
+#pytest-forked-1.3.0
+#pytest-html-3.1.1
+#pytest-metadata-1.11.0
+#pytest-ordering-0.6
+#pytest-rerunfailures-10.1
+#pytest-xdist-2.3.0
+#PyMySQl-1.0.2

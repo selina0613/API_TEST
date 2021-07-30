@@ -48,9 +48,9 @@ class TestApi:
         # # print(value.group(1))  # group(0)表示它本身
         # TestApi.csrf_token = value.group(1)   #group(0)表示它本身
 
-
-if __name__ == '__main__':
-    pytest.main('-vs')
+#写了run.py文件后可不写main，会通过pytest.ini配置文件去执行所有指定的文件及用例
+# if __name__ == '__main__':
+#     pytest.main('-vs')
 
 #参数都正确，却还报以下错误
 #{"referer":null,"refresh":null,"state":"fail","message":["Sorry, CSRF verification failed(token missing or incorrect),refresh to try again."],"__error":""

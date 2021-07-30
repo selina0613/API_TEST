@@ -56,7 +56,7 @@ pytest框架管理所有测试用例
 默认的测试用例规则
 1.模块名必须以test_开头或者_test结尾
 2.测试类也要以Test开头
-3.测试方法必须以test开头
+3.测试方法必须以test_开头
 
 字符串和dict之间的转换：
 1、json。load()    把json字符串转换成dict格式
@@ -72,7 +72,7 @@ import requests
 # res_req_get = requests.request("get")
 # res_req_post = requests.request("get")
 
-class TestApi:
+# class TestApi:
     # def test_get_token(self):
     #
     #     url ="https://api.weixin.qq.com/cgi-bin/token"
@@ -98,20 +98,20 @@ class TestApi:
     #     res_post = requests.post(url=url, data=strs)
     #     print(res_post.text)
 
-    def test_file_upload(self):
-        """文件上传"""
-        url = "https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=47_wPhfRw8w1hmTNV8PS1OXEMw9un2PqFYUlEGKNWjyfLbftA2TWmCtNpES_LlQKgyesmgNsxzLZzpElp9WLC-FKJTG-iZq_UysBjTyhfKRmTSN3ExFtmBGcHD65lf737oJozKjxCYEaSHp7ePwLPChABABFS"
-        value = {
-            "media": open(r"G:\Desktop\banner.png", "rb")
-        }
-        res_post = requests.post(url=url, files=value)
-        print(res_post.text)
+    # def test_file_upload(self):
+    #     """文件上传"""
+    #     url = "https://api.weixin.qq.com/cgi-bin/media/uploadimg?access_token=47_wPhfRw8w1hmTNV8PS1OXEMw9un2PqFYUlEGKNWjyfLbftA2TWmCtNpES_LlQKgyesmgNsxzLZzpElp9WLC-FKJTG-iZq_UysBjTyhfKRmTSN3ExFtmBGcHD65lf737oJozKjxCYEaSHp7ePwLPChABABFS"
+    #     value = {
+    #         "media": open(r"G:\Desktop\banner.png", "rb")
+    #     }
+    #     res_post = requests.post(url=url, files=value)
+    #     print(res_post.text)
 
 
 
 
-if __name__ == '__main__':
-    pytest.main(['-vs'])    #-vs表示打印详细信息
+# if __name__ == '__main__':
+#     pytest.main(['-vs'])    #-vs表示打印详细信息
 
 
 
