@@ -78,15 +78,15 @@ teardown:        在每个用例之后执行一次，如：关闭浏览器
 setup_class:     在每个类之前执行一次，如：创建日志对象，创建数据库连接
 teardown_class:  在每个类之后执行一次，如：关闭数据库连接，销毁日志对象
 如果有10000个用例，其中三个用例需要做前后置。
-部分前后置，使用fixtrue装饰器。固件。
+即部分前后置，使用fixtrue装饰器。固件。
 方法如下：
 @pytest.fixtrue(scope="作用域",params="数据驱动",autouse="自动执行",ids="数据驱动参数名",
                 name="给fixtrue作用的函数重命名")
 1、scope参数：
-function  函数
-class   类
-module  模块
-package/session   会话
+function  函数  每一个函数或方法都会调用
+class   类       每个测试类只运行一次
+module  模块      每一个.py文件调用一次
+package/session   会话级	每次会话只需要运行一次，会话内所有方法及类，模块都共享这个方法
 
 部分用例的前后置
 import pytest
@@ -108,17 +108,18 @@ class TestMa:
 class TESTAAAI:
     def test_aaa(self):
         print("test_aaa")
-会话的前后置，一般会结合conftest.py文件一起使用
+
+#会话session的前后置，一般会结合conftest.py文件一起使用
 1、conftest.py单独用于存放fixture固件的配置文件
 2、在conftest.py中固件在使用时不需要导包
 3、可以有多个conftest.py文件
 
-接口关联（需要把所有的全局变量都集中管理）
-通过一个单独的yaml文件管理
+六、接口关联（需要把所有的全局变量都集中管理）
+比较成熟的方案：通过一个单独的yaml文件管理
 接口自动化测试框架封装第一步：接口关联封装
 
-生成漂亮的allure报告
-1、官网下载allure
+七、生成漂亮的allure报告
+1、官网下载allure https://github.com/allure-framework/allure2/releases
 下载后解压保存到e盘，并且需要把bin路径配置到path里面
 2、验证allure是否安装成功
 allure --version
@@ -126,7 +127,7 @@ allure --version
 (1)生成临时的json格式的测试报告
 addopts = -vs --alluredir ./temps --clean-alluredir
 (2)生成html报告
-os.system("allure generate ./temps -o .reports --clean") #o表示output输出
+os.system("allure generate ./temps -o ./report --clean") #o表示output输出
 """
 import pytest
 
@@ -157,14 +158,14 @@ class TestDay2Api:
         :return:
         """
         print("用户管理模块的冒烟测试用例")
-
-    @pytest.mark.run(order=2)
-    def test_day2_04(self):
-        print("test_day2_04 第二个执行 测试修改用例执行顺序的用例")
-
-    @pytest.mark.run(order=1)
-    def test_day2_05(self):
-        print("test_day2_05 第一个执行 测试修改用例执行顺序的用例")
+    #
+    # @pytest.mark.run(order=2)
+    # def test_day2_04(self):
+    #     print("test_day2_04 第二个执行 测试修改用例执行顺序的用例")
+    #
+    # @pytest.mark.run(order=1)
+    # def test_day2_05(self):
+    #     print("test_day2_05 第一个执行 测试修改用例执行顺序的用例")
 
     def test_day2_06(self):
         if 1 < 2:

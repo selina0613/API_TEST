@@ -33,9 +33,9 @@ sheet=wb.sheet_by_name('Sheet1') #方法一：通过表格name创建表格对象
 # cell_value = sheet.cell_value(0,0)
 # print(cell_value)
 # cell_value = sheet.cell_value(1,0)
-# print(cell_value)
-# cell_value = sheet.cell_value(2,0) #对于合并的左上角首个单元格会返回真实值
-# print(cell_value)
+# pprint(cell_value)
+# # cell_value = sheet.cell_value(2,0) #对于合并的左上角首个单元格会返回真实值
+# # rint(cell_value)
 
 # print(sheet.merged_cells)#返回一个列表，起始行，结束行，起始列，结束列
 
