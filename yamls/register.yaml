@@ -1,0 +1,244 @@
+- name: 普通用户注册接口
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179491
+      pwd: qwer123456
+      type: 0
+      reg_name: 哈密瓜
+  validate:
+    eq: {msg: OK}
+
+- name: 管理员账户注册接口
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179492
+      pwd: qwer123456
+      type: 1
+      reg_name: 哈密瓜管理员
+  validate:
+    eq: {msg: OK}
+
+- name: 管理员账户注册接口
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179492
+      pwd: qwer123456
+      type: 1
+      reg_name: 哈密瓜管理员
+  validate:
+    eq: {msg: 账号已存在}
+
+- name: 注册账号为空
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone:
+      pwd: qwer123456
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 手机号为空}
+
+- name: 注册密码为空
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179492
+      pwd:
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 密码为空}
+
+- name: 注册类型为空
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179495
+      pwd: qwer123456
+      type:
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: OK}
+
+- name: 昵称为空
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179496
+      pwd: qwer123456
+      type: 0
+      reg_name:
+  validate:
+    eq: {msg: OK}
+
+- name: 注册账号位数不足11位
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 157781794
+      pwd: qwer123456
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 无效的手机格式}
+
+- name: 注册账号位数超过11位
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179496123
+      pwd: qwer123456
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 无效的手机格式}
+
+- name: 注册密码不足8位
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179496
+      pwd: qwer
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 密码格式为8到16位}
+
+- name: 注册密码超过16位
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179496
+      pwd: qwer12345789741852
+      type: 0
+      reg_name: 哈密瓜儿
+  validate:
+    eq: {msg: 密码格式为8到16位}
+
+- name: 昵称数超过10位
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/register
+    method: post
+    data:
+      mobile_phone: 15778179496
+      pwd: qwer123456
+      type: 0
+      reg_name: 哈密瓜好吃好吃好吃儿啊啊啊啊啊
+  validate:
+    eq: {msg: 用户昵称长度超过10位}
+
+- name: 管理员账号登录
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/login
+    method: post
+    data:
+      mobile_phone: 18820992517
+      pwd: qwer123456
+  validate:
+    eq: {msg: OK}
+
+- name: 普通账号登录
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/login
+    method: post
+    data:
+      mobile_phone: 18820992516
+      pwd: qwer123456
+  validate:
+    eq: {msg: OK}
+
+- name: 不传账号登录
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/login
+    method: post
+    data:
+      mobile_phone:
+      pwd: qwer123456
+  validate:
+    eq: {msg: 手机号码为空}
+
+- name: 不传密码登录
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/login
+    method: post
+    data:
+      mobile_phone: 18820992516
+      pwd:
+  validate:
+    eq: {msg: 密码为空}
+
+- name: 不存在的账号登录
+  request:
+    headers:
+      Content-Type: application/json
+      X-Lemonban-Media-Type: lemonban.v2
+    url: http://api.lemonban.com/futureloan/member/login
+    method: post
+    data:
+      mobile_phone: 13333333333
+      pwd: qwer123456
+  validate:
+    eq: {msg: 账号信息错误}

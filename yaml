@@ -1,0 +1,9 @@
+YAML格式用例的约定
+1.必须包含一级关键字：name、request，validate
+2.在request关键字下必须包含method、url、data 如data没有的话，那么输入默认值{}
+3.提取变量使用一级关键字extract 。支持json提取和正则提取(.*?)和(.+?),取值使用{{}}
+4.可以使用热加载的方式调用debug_talk.py中DebugTalk类里面的方法，通过${}调用方法
+5.支持equals、contains两种断言
+6.使用parameters做csv文件的数据驱动，通过$csv{appid}这种格式提取
+parameters:
+    name-appid-secret-grant_type-assert_str: data/get_token_data.csv

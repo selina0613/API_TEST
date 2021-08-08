@@ -31,7 +31,7 @@ class TestApi:
             "Accept": "application/json, text/javascript, */*; q=0.01",  # 客户端接收的数据类型
             "X-Requested-with": "XMLHttpRequest"  # 异步请求
         }
-        res = res = TestApi.session.request("post", url=url, data=args, headers=headers)
+        res = TestApi.session.request("post", url=url, data=args, headers=headers)
         print(res.text)
 
 
